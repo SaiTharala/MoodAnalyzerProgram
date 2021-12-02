@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MoodAnalyzerTesting
+namespace MoodAnalyzer
 {
-    class MoodAnalyzerTest
+    public class MoodAnalyzerTest
     {
         string message;
         public MoodAnalyzerTest(string message)
@@ -13,11 +11,14 @@ namespace MoodAnalyzerTesting
         }
         public string AnalyzeMood()
         {
-            if (message.Contains("Sad"))
+            try
             {
-                return "Sad";
+                if (message.Contains("Happy"))
+                    return "Happy";
+                else
+                    return "Sad";
             }
-            else
+            catch (NullReferenceException)
             {
                 return "Happy";
             }
